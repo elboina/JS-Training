@@ -47,6 +47,8 @@ const Button = {
     super.render();
     this.elm.textContent = this.text;
     // TODO: écouter les événements clic et focus
+    this.listenToClickEvents(this.elm);
+    this.listenToFocusEvents(this.elm);
     return this.elm;
   },
   ...Focusable,
@@ -62,6 +64,8 @@ const Input = {
     super.render();
     this.elm.value = this.value;
     // TODO: écouter les événements keyup et focus
+    this.listenToKeyboardEvents(this.elm);
+    this.listenToFocusEvents(this.elm);
     return this.elm;
   },
   ...Focusable,

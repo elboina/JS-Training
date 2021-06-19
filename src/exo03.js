@@ -2,5 +2,5 @@
 // { a: "b" } => { b: "a" }
 
 export function invertKeysAndValues(obj) {
-  return obj;
+  return Object.entries(obj).reduce((acc, [key, value]) => Object.assign(acc, {[value]: key}), {});
 }

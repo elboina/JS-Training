@@ -48,8 +48,12 @@ const Button = {
     this.elm.textContent = this.text;
     // TODO: écouter les événements clic et focus
     return this.elm;
-  }
+  },
+  ...Focusable,
+  ...Clickable
 };
+
+Object.setPrototypeOf(Button, Component);
 
 const Input = {
   value: null,
@@ -59,8 +63,12 @@ const Input = {
     this.elm.value = this.value;
     // TODO: écouter les événements keyup et focus
     return this.elm;
-  }
+  },
+  ...Focusable,
+  ...Editable
 };
+
+Object.setPrototypeOf(Input, Component); 
 
 const TextInput = {
   name: "text-input",
@@ -68,6 +76,8 @@ const TextInput = {
     this.value = event.target.value;
   }
 };
+
+Object.setPrototypeOf(TextInput, Input);
 
 //TODO: établir et coder les relations entre les différents objets: délégation, composition ou encapsulation
 

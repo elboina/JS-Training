@@ -2,8 +2,8 @@ import data from "../__tests__/fakedata.json";
 
 // TODO: implémenter une fonction qui retourne la composée de plusieurs fonctions
 // compose(f,g,h)(...args) <=> h(g(f(...args)))
-export function compose() {
-
+export function compose(fn, ...fns) {
+    return (...args) => fns.reduce((result, f) => f(result), fn(...args));
 }
 
 // les fonctions composées doivent être pures et non mutables

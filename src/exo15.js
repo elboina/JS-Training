@@ -7,12 +7,15 @@ export const person = {
 };
 
 // TODO : assigner person comme prototype
-export const user = {
+export const user = Object.assign(Object.create(person), {
   rights: [],
   hasRight(right) {
     return this.rights.includes(right);
   }
-};
+});
+
+// Object.setPrototypeOf(user, person);
+// Object.assign(user, Object.create(person));
 
 // TODO: assigner user comme prototype
 export const bob = {
@@ -20,6 +23,8 @@ export const bob = {
   first: "Bob",
   rights: ["create", "read"]
 };
+
+Object.setPrototypeOf(bob, user);
 
 // 1) avec Object.setPrototypeOf
 // 2) avec Object.create et avec Object.assign

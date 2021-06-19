@@ -8,9 +8,9 @@ const paroles = [
 export const instructions = [];
 
 // TOFIX: imprimer la chanson correctement
-for (var i = 0; i < paroles.length; i++) {
+for (let parole of paroles) {
   instructions.push(function printNextLine() {
-    return paroles[i] + ", " + paroles[i];
+    return `${parole}, ${parole}`;
   });
 }
 
